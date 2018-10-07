@@ -31,9 +31,9 @@ func TestNewLogger(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := NewLogger(tt.args.logPath)
+			got, err := newLogger(tt.args.logPath)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("NewLogger() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("newLogger() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !tt.wantErr {

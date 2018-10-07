@@ -26,8 +26,8 @@ var cfg = zap.Config{
 	},
 }
 
-// NewLogger creates a new instance of zap.Logger and returns a pointer to it
-func NewLogger(logPath string) (*zap.Logger, error) {
+// newLogger creates a new instance of zap.Logger and returns a pointer to it
+func newLogger(logPath string) (*zap.Logger, error) {
 	if logPath != "" {
 		f, err := os.OpenFile(logPath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 		if err != nil {
