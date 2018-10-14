@@ -23,6 +23,8 @@ var cfg = zap.Config{
 
 		CallerKey:    "caller",
 		EncodeCaller: zapcore.ShortCallerEncoder,
+
+		StacktraceKey: "stacktrace",
 	},
 }
 
