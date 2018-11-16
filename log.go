@@ -33,7 +33,10 @@ func newLogger(logPath string) (*zap.Logger, error) {
 		if err != nil {
 			return nil, err
 		}
-		f.Close()
+		err = f.Close()
+		if err != nil {
+			return nil, err
+		}
 		cfg.OutputPaths = append(cfg.OutputPaths, logPath)
 		cfg.ErrorOutputPaths = append(cfg.ErrorOutputPaths, logPath)
 	}
