@@ -10,9 +10,9 @@ import (
 
 var log *zap.Logger
 
-func InitLog(logPath string) {
+func InitLog(cfg zap.Config) {
 	var err error
-	log, err = newLogger(logPath)
+	log, err = cfg.Build()
 	if err != nil {
 		fmt.Println("unable to initialize log")
 		fmt.Println(err)
@@ -22,7 +22,8 @@ func InitLog(logPath string) {
 
 func Logger() *zap.Logger {
 	if log == nil {
-		InitLog("")
+		cfg := DefaultConfig()
+		InitLog(cfg)
 	}
 	return log
 }
