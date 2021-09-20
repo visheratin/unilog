@@ -20,6 +20,10 @@ func InitLog(cfg zap.Config) {
 	}
 }
 
+func SetLogger(l *zap.Logger) {
+	log = l
+}
+
 func Logger() *zap.Logger {
 	if log == nil {
 		cfg := DefaultConfig()
